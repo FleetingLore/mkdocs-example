@@ -20,12 +20,14 @@ trap cleanup EXIT
 echo ">>> Building MkDocs project"
 mkdocs build --site-dir "$BUILD_TMP"
 
+# 添加 .nojekyll 文件
+touch "$BUILD_TMP/.nojekyll"
+
 # 部署到 gh-pages
 echo ">>> Deploying to branch: $DEPLOY_BRANCH"
 
 GIT_TMP=$(mktemp -d)
 
-# 检查远程是否有 gh-pages 分支
 if git ls-remote --heads "$REPO" "$DEPLOY_BRANCH" | grep -q "$DEPLOY_BRANCH"; then
     git clone --depth 1 --branch "$DEPLOY_BRANCH" "$REPO" "$GIT_TMP"
 else
@@ -47,7 +49,6 @@ cd "$GIT_TMP"
 git add --all
 git rm --cached -f .DS_Store >/dev/null 2>&1 || true
 
-# 检查是否有变化
 if git diff --cached --quiet && git diff --quiet; then
     echo "No content changes detected. Skipping commit and push."
 else
