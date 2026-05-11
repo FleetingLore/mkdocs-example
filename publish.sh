@@ -31,7 +31,6 @@ GIT_TMP=$(mktemp -d)
 if git ls-remote --heads "$REPO" "$DEPLOY_BRANCH" | grep -q "$DEPLOY_BRANCH"; then
     git clone --depth 1 --branch "$DEPLOY_BRANCH" "$REPO" "$GIT_TMP"
 else
-    echo ">>> gh-pages branch doesn't exist, creating new one..."
     git clone "$REPO" "$GIT_TMP"
     cd "$GIT_TMP"
     git checkout --orphan "$DEPLOY_BRANCH"
