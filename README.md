@@ -5,4 +5,4 @@
 
 参考 [mkdocs](https://www.mkdocs.org)
 
-示例 [mkdocs-example](https://github.com/FleetingLore/mkdocs-example)
+示例 [mkdocs-example](https://fleetinglore.github.io/mkdocs-example)
