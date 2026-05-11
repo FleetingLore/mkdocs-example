@@ -1,1 +1,1 @@
-The example content in markdown.
+Some example content in markdown.
