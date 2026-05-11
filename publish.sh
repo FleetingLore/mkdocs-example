@@ -4,7 +4,7 @@ set -e
 
 # 此处默认值应替换
 REPO_NAME="mkdocs-example"
-REPO="git@github.com:corain/${REPO_NAME}.git"
+REPO="git@github.com:FleetingLore/${REPO_NAME}.git"
 
 DEPLOY_BRANCH="gh-pages"
 

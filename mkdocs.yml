@@ -1,5 +1,5 @@
-site_name: xxx
-site_url: https://xxx.github.io/shelf/xxx
+site_name: mkdocs-example
+site_url: https://fleetinglore.github.io/mkdocs-axample
 
 # 在此处指定目录
 nav:
