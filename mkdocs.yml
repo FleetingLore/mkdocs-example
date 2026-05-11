@@ -1,0 +1,47 @@
+site_name: xxx
+site_url: https://xxx.github.io/shelf/xxx
+
+# 在此处指定目录
+nav:
+  - example: index.md
+
+theme:
+  name: material
+  palette:
+    # 亮色模式
+    - scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    # 深色模式
+    - scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+  logo: assets/images/logo.svg
+  favicon: assets/images/favicon.svg
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - toc.integrate
+
+extra_css:
+  - stylesheets/extra.css
+  - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css
+
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+  - attr_list
+  - pymdownx.emoji # 可选：支持表情符号
+  - footnotes # 可选：支持脚注
+
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js
+  - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js
+  - javascripts/katex.js
