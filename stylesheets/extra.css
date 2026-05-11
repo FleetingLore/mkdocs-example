@@ -1,0 +1,169 @@
+/* docs/stylesheets/extra.css */
+
+/* ========================================================================
+   Material for MkDocs 完整自定义颜色配置
+   包含：亮色模式 + 深色模式 + 代码块 Tomorrow 主题 + 交互优化
+   ======================================================================== */
+
+/* ------------------------------------------------------------------------
+   亮色模式 (default)
+   ------------------------------------------------------------------------ */
+[data-md-color-scheme="default"] {
+  /* ===== Primary 主色 ===== */
+  --md-primary-fg-color: #dddddd;
+  --md-primary-fg-color--light: #dddddd;
+  --md-primary-fg-color--dark: #dddddd;
+  --md-primary-bg-color: #ffffff;
+
+  /* ===== Accent 强调色 ===== */
+  --md-accent-fg-color: #90dfdf;
+  --md-accent-fg-color--light: #90dfdf;
+  --md-accent-fg-color--dark: #90dfdf;
+  --md-accent-bg-color: #ffffff;
+
+  /* ===== 默认文字/背景 ===== */
+  --md-default-fg-color: #000070;
+  --md-default-fg-color--light: #202050;
+  --md-default-fg-color--lighter: #f0f3ff;
+  --md-default-fg-color--lightest: #eeeeee;
+  --md-default-bg-color: #ffffff;
+
+  /* ===== 代码块 - Tomorrow 主题 ===== */
+  --md-code-fg-color: #4d4d4c;
+  --md-code-bg-color: #f5f5f5;
+  --md-code-hl-color: #fff3b0;
+  --md-code-hl-number-color: #f5871f;
+  --md-code-hl-special-color: #c82829;
+  --md-code-hl-comment-color: #8e908c;
+  --md-code-hl-keyword-color: #8959a8;
+  --md-code-hl-string-color: #718c00;
+  --md-code-hl-name-color: #4d4d4c;
+  --md-code-hl-operator-color: #3e999f;
+  --md-code-hl-punctuation-color: #4d4d4c;
+
+  /* ===== 正文排版 ===== */
+  --md-typeset-color: #000070;
+  --md-typeset-a-color: #000000;
+  --md-typeset-mark-color: #fff3b0;
+  --md-typeset-del-color: #c82829;
+  --md-typeset-ins-color: #718c00;
+  --md-typeset-kbd-color: #fafafa;
+  --md-typeset-kbd-border-color: #cccccc;
+  --md-typeset-table-color: #e0e0e0;
+  --md-typeset-th-color: #f0f0f0;
+  --md-typeset-tr-color: #ffffff;
+
+  /* ===== 页脚 ===== */
+  --md-footer-fg-color: #ffffff;
+  --md-footer-fg-color--light: #cccccc;
+  --md-footer-bg-color: #000020;
+  --md-footer-bg-color--dark: #000040;
+
+  /* ===== 阴影/遮罩 ===== */
+  --md-overlay-color: rgba(0, 0, 112, 0.1);
+}
+
+/* ------------------------------------------------------------------------
+   深色模式 (slate)
+   ------------------------------------------------------------------------ */
+[data-md-color-scheme="slate"] {
+  /* 色相控制（240 = 蓝色调） */
+  --md-hue: 240;
+
+  /* ===== 默认文字/背景 ===== */
+  --md-default-fg-color: #f0f8ff;
+  --md-default-bg-color: #1a1a3a;
+  --md-code-bg-color: #23232e;
+
+  /* ===== 正文排版 ===== */
+  --md-typeset-color: #f0f8ff;
+  --md-typeset-a-color: #90dfdf;
+
+  /* ===== 页脚 ===== */
+  --md-footer-bg-color: #0d0d2a;
+  --md-footer-bg-color--dark: #080818;
+
+  /* ===== 阴影/遮罩 ===== */
+  --md-overlay-color: rgba(176, 176, 255, 0.1);
+
+  /* ===== 代码块 - Tomorrow 主题（深色微调） ===== */
+  --md-code-fg-color: #c5c8c6;
+  --md-code-hl-number-color: #f5871f;
+  --md-code-hl-special-color: #cc6666;
+  --md-code-hl-comment-color: #969896;
+  --md-code-hl-keyword-color: #b294bb;
+  --md-code-hl-string-color: #b5bd68;
+  --md-code-hl-operator-color: #8abeb7;
+}
+
+/* ========================================================================
+   交互优化（悬浮、焦点、行号等）
+   ======================================================================== */
+
+/* ----- 亮色模式：链接悬浮效果 ----- */
+[data-md-color-scheme="default"] .md-typeset a:hover {
+  color: var(--md-accent-fg-color);
+  text-decoration: underline;
+}
+
+/* ----- 深色模式：链接悬浮效果 ----- */
+[data-md-color-scheme="slate"] .md-typeset a:hover {
+  color: var(--md-typeset-a-color);
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* ----- 搜索框焦点边框 ----- */
+[data-md-color-scheme="default"] .md-search__form:focus-within {
+  border-color: var(--md-primary-fg-color);
+  box-shadow: 0 0 0 2px rgba(144, 223, 223, 0.2);
+}
+
+[data-md-color-scheme="slate"] .md-search__form:focus-within {
+  border-color: var(--md-primary-fg-color);
+  box-shadow: 0 0 0 2px rgba(176, 176, 255, 0.2);
+}
+
+/* ----- 代码行号（如果启用了行号显示） ----- */
+.md-typeset .codehilite .linenos,
+.md-typeset .highlight .linenos {
+  color: var(--md-code-hl-comment-color);
+  opacity: 0.7;
+}
+
+/* ----- 代码块悬浮效果（可选） ----- */
+.md-typeset .codehilite:hover,
+.md-typeset .highlight:hover {
+  box-shadow: 0 0 0 1px var(--md-code-hl-color);
+  transition: box-shadow 0.2s ease;
+}
+
+/* ----- TOC 目录悬浮效果 ----- */
+.md-nav__link:hover {
+  color: var(--md-accent-fg-color) !important;
+}
+
+/* ----- 标签页/按钮悬浮效果 ----- */
+.md-tabs__link:hover,
+.md-button:hover {
+  opacity: 0.8;
+}
+
+/* ----- 滚动条美化（可选） ----- */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--md-default-bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--md-primary-fg-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--md-accent-fg-color);
+}
