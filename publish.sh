@@ -23,10 +23,38 @@ mkdocs build --site-dir "$BUILD_TMP"
 # 添加 .nojekyll 文件
 touch "$BUILD_TMP/.nojekyll"
 
-# 直接推送到 main 分支触发 Actions
-echo ">>> Pushing to main branch to trigger GitHub Actions"
-git add .
-git commit -m "Update content at $(date -u '+%Y-%m-%d %H:%M:%S UTC')" || echo "No changes to commit"
-git push origin main
+# 部署到 gh-pages
+echo ">>> Deploying to branch: $DEPLOY_BRANCH"
+
+GIT_TMP=$(mktemp -d)
+
+# 检查远程是否有 gh-pages 分支
+if git ls-remote --heads "$REPO" "$DEPLOY_BRANCH" | grep -q "$DEPLOY_BRANCH"; then
+    git clone --depth 1 --branch "$DEPLOY_BRANCH" "$REPO" "$GIT_TMP"
+else
+    echo ">>> gh-pages branch doesn't exist, creating new one..."
+    git clone "$REPO" "$GIT_TMP"
+    cd "$GIT_TMP"
+    git checkout --orphan "$DEPLOY_BRANCH"
+    git rm -rf . >/dev/null 2>&1 || true
+    cd - >/dev/null
+fi
+
+cd "$GIT_TMP"
+find . -mindepth 1 -not -path './.git*' -delete
+cd - >/dev/null
+
+rsync -av --exclude='.git' --exclude='.DS_Store' "$BUILD_TMP/" "$GIT_TMP/"
+
+cd "$GIT_TMP"
+git add --all
+git rm --cached -f .DS_Store >/dev/null 2>&1 || true
+
+# 强制推送
+git commit --allow-empty -m "Deploy MkDocs at $(date -u '+%Y-%m-%d %H:%M:%S UTC')" || true
+git push --force-with-lease "$REPO" "$DEPLOY_BRANCH"
+
+cd - >/dev/null
+rm -rf "$GIT_TMP"
 
 echo "done."
