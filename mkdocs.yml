@@ -32,7 +32,6 @@ theme:
 
 extra_css:
   - stylesheets/extra.css
-  - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css
 
 markdown_extensions:
   - pymdownx.arithmatex:
@@ -42,6 +41,5 @@ markdown_extensions:
   - footnotes # 可选：支持脚注
 
 extra_javascript:
-  - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js
-  - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js
-  - javascripts/katex.js
+  - javascripts/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
