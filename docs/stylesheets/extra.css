@@ -111,13 +111,14 @@
 
 /* 页脚链接：蓝色背景 + 白色文字，悬浮青色 */
 .md-footer a {
-  background: var(--link);
-  color: var(--text);
+  background: var(--link) !important;
+  color: var(--text) !important;
   transition: all 0.2s ease;
 }
 
 .md-footer a:hover {
-  color: var(--theme);
+  color: var(--theme) !important;
+  background-color: var(--aux-dark) !important;
 }
 
 /* 导航标题 */
