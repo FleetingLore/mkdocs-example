@@ -22,6 +22,9 @@ theme:
 extra_css:
   - stylesheets/extra.css
 
+repo_url: https://github.com/fleetinglore/mkdocs-example
+repo_name: fleetinglore/mkdocs-example
+
 markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
