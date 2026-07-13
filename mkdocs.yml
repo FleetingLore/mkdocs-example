@@ -8,20 +8,9 @@ nav:
 theme:
   name: material
   palette:
-    # 亮色模式
     - scheme: default
       primary: custom
       accent: custom
-      toggle:
-        icon: material/toggle-switch-off-outline
-        name: Switch to dark mode
-    # 深色模式
-    - scheme: slate
-      primary: custom
-      accent: custom
-      toggle:
-        icon: material/toggle-switch
-        name: Switch to light mode
   logo: assets/images/logo.svg
   favicon: assets/images/favicon.svg
   features:
