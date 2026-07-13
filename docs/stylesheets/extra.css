@@ -154,6 +154,7 @@
 
   .md-typeset a:hover {
     color: var(--theme);
+    background-color: var(--bg);
   }
 
   /* 导航标题 */
