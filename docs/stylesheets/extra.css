@@ -90,7 +90,7 @@
 
     /* ===== 代码块 ===== */
     --md-code-fg-color:             var(--text);
-    --md-code-bg-color:             var(--aux-dark);
+    --md-code-bg-color:             var(--aux-mid);
     --md-code-hl-color:             var(--theme);
     --md-code-hl-number-color:      var(--theme);
     --md-code-hl-special-color:     var(--theme);
